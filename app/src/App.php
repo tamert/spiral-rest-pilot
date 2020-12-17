@@ -44,7 +44,8 @@ class App extends Kernel
         Framework\Security\ValidationBootloader::class,
         Framework\Security\FiltersBootloader::class,
         Framework\Security\GuardBootloader::class,
-
+        Framework\Auth\HttpAuthBootloader::class,
+        Framework\Auth\TokenStorage\CycleTokensBootloader::class,
         // HTTP extensions
         Nyholm\NyholmBootloader::class,
         Framework\Http\RouterBootloader::class,

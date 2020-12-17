@@ -13,7 +13,6 @@ namespace App\Controller;
 
 use App\Job\Ping;
 use Spiral\Prototype\Traits\PrototypeTrait;
-use Spiral\Router\Annotation\Route;
 
 
 class HomeController
@@ -21,12 +20,19 @@ class HomeController
     use PrototypeTrait;
 
     /**
-     * @Route(route="/", name="index", methods={"GET"})
      * @return string
      */
     public function index(): string
     {
         return $this->views->render('home.dark.php');
+    }
+
+    /**
+     * @return string
+     */
+    public function test(): string
+    {
+        return "naber";
     }
 
     /**

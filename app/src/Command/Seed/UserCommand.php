@@ -26,8 +26,9 @@ class UserCommand extends Command
         for ($i = 0; $i < 5; $i++) {
             $user = new User();
             $user->name = $faker->name();
+            $user->username = $faker->userName;
             $user->email = $faker->safeEmail;
-            $user->password = $faker->password(8, 8);
+            $user->password = password_hash('secret', PASSWORD_DEFAULT);;
             $user->status = "active";
 
             $tr->persist($user);

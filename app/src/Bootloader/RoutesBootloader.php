@@ -11,7 +11,9 @@ declare(strict_types=1);
 
 namespace App\Bootloader;
 
+use App\Controller\AuthController;
 use App\Controller\HomeController;
+use App\Controller\UserController;
 use Spiral\Boot\Bootloader\Bootloader;
 use Spiral\Router\Route;
 use Spiral\Router\RouteInterface;
@@ -33,6 +35,18 @@ class RoutesBootloader extends Bootloader
             'html',
             new Route('/<action>.html', new Controller(HomeController::class))
         );
+
+        $router->setRoute('user', new Route(
+            '/user/<id:\d+>',
+            new Controller(UserController::class, Controller::RESTFUL),
+            ['action' => 'user']
+        ));
+
+        $router->setRoute('auth', new Route(
+            '/auth/login',
+            new Controller(AuthController::class, Controller::RESTFUL),
+            ['action' => 'login']
+        ));
 
         // fallback (default) route
         $router->setDefault($this->defaultRoute());

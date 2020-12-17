@@ -22,6 +22,8 @@
         "cycle/orm": "^1.0",
         "cycle/proxy-factory": "^1.0",
         "fzaninotto/faker": "^1.9",
+        "spiral/auth": "^2.6",
+        "spiral/auth-http": "^2.6",
         "spiral/database": "^2.3",
         "spiral/dotenv-bridge": "^1.0",
         "spiral/framework": "^2.7",

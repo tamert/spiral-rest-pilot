@@ -33,6 +33,11 @@ class User
     public $email;
 
     /**
+     * @Cycle\Column(type="string")
+     */
+    public $username;
+
+    /**
      * @Cycle\Column(type = "string")
      */
     public $password;
