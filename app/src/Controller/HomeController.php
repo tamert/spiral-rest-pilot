@@ -30,14 +30,6 @@ class HomeController
     /**
      * @return string
      */
-    public function test(): string
-    {
-        return "naber";
-    }
-
-    /**
-     * @return string
-     */
     public function ping(): string
     {
         $jobID = $this->queue->push(Ping::class, [

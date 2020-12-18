@@ -1,21 +1,24 @@
-<extends:layout.base title="[[Welcome To Spiral]]"/>
-<use:element path="embed/links" as="homepage:links"/>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ReDoc</title>
+    <!-- needed for adaptive design -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700|Roboto:300,400,700" rel="stylesheet">
 
-<stack:push name="styles">
-    <link rel="stylesheet" href="/styles/welcome.css"/>
-</stack:push>
-
-<define:body>
-    <div class="wrapper">
-        <div class="placeholder">
-            <img src="/images/logo.svg" alt="Framework Logotype" width="200px"/>
-            <h2>[[Welcome to Spiral Framework]]</h2>
-
-            <homepage:links git="https://github.com/spiral/app" style="font-weight: bold;"/>
-
-            <div style="font-size: 12px; margin-top: 10px;">
-                [[This view file is located in]] <b>app/views/home.dark.php</b> [[and rendered by]] <b>Controller\HomeController</b>.
-            </div>
-        </div>
-    </div>
-</define:body>
+    <!--
+    ReDoc doesn't change outer page styles
+    -->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+<redoc spec-url='http://petstore.swagger.io/v2/swagger.json'></redoc>
+<script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
+</body>
+</html>

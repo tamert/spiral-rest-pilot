@@ -14,10 +14,6 @@ use Doctrine\Common\Collections\ArrayCollection;
 /**
  * @Cycle\Entity(repository = "App\Repository\NewsRepository")
  */
-
-/**
- * @Cycle\Entity()
- */
 class News
 {
     /**

@@ -13,6 +13,7 @@ namespace App\Bootloader;
 
 use App\Controller\AuthController;
 use App\Controller\HomeController;
+use App\Controller\NewsController;
 use App\Controller\UserController;
 use Spiral\Boot\Bootloader\Bootloader;
 use Spiral\Router\Route;
@@ -23,6 +24,8 @@ use Spiral\Router\Target\Namespaced;
 
 class RoutesBootloader extends Bootloader
 {
+    const API = '/api';
+
     /**
      * Bootloader execute method.
      *
@@ -37,13 +40,25 @@ class RoutesBootloader extends Bootloader
         );
 
         $router->setRoute('user', new Route(
-            '/user/<id:\d+>',
+            self::API . '/user/<id:\d+>',
             new Controller(UserController::class, Controller::RESTFUL),
             ['action' => 'user']
         ));
 
+        $router->setRoute('news', new Route(
+            self::API . '/news/<id:\d+>',
+            new Controller(NewsController::class, Controller::RESTFUL),
+            ['action' => 'news']
+        ));
+
+        $router->setRoute('news.list', new Route(
+            self::API . '/news',
+            new Controller(NewsController::class),
+            ['action' => 'index']
+        ));
+
         $router->setRoute('auth', new Route(
-            '/auth/login',
+            self::API . '/auth/login',
             new Controller(AuthController::class, Controller::RESTFUL),
             ['action' => 'login']
         ));
@@ -67,7 +82,7 @@ class RoutesBootloader extends Bootloader
 
         return $route->withDefaults([
             'controller' => 'home',
-            'action'     => 'index',
+            'action' => 'index',
         ]);
     }
 }

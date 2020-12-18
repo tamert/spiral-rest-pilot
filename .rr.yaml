@@ -32,3 +32,10 @@ limit:
   services:
     http.maxMemory: 100
     jobs.maxMemory: 100
+
+broadcast:
+    # optional, redis broker configuration
+    redis:
+        addr:      "localhost:6379"
+        password: ""
+        db:        0
