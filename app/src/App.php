@@ -20,6 +20,7 @@ use Spiral\Nyholm\Bootloader as Nyholm;
 use Spiral\Prototype\Bootloader as Prototype;
 use Spiral\Scaffolder\Bootloader as Scaffolder;
 use Spiral\Stempler\Bootloader as Stempler;
+use Spiral\DataGrid\Bootloader as DataGrid;
 
 class App extends Kernel
 {
@@ -74,6 +75,7 @@ class App extends Kernel
 
         // Extensions and bridges
         Stempler\StemplerBootloader::class,
+        DataGrid\GridBootloader::class,
 
         // Framework commands
         Framework\CommandBootloader::class,
